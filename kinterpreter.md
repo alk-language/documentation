@@ -10,4 +10,31 @@ The second step is to download and kompile the K definition of Alk:
 * if you have git on your system, then the best is to make a clone of the K definition of alk from https://github.com/alk-language/k-semantics
 * otherwise, you may download a zip archive from https://github.com/alk-language/k-semantics (`Clone or download` button);
 * go to the `alk` folder and compile the K definition of Alk using the command `kompile alk.k`
+* this command will create a subfolder `alk-kompiled`
+
+The thir step is to configure the `alki` tool, a script running the compiled definition:
+* go to the folder `bin`
+* use the prefered text editor to open the file `alki.config` from the `bin` folder;
+* add the paths to the K binaries in this file: the path to K bin folder (something like `pathtok/bin`), and the path to the Alk K definition (where is the `alk-kompiled` subfolder);
+* add the full path to the `k-semantics/bin/` to the PATH environment variable;
+* test the tool using the command `alki`; the output should be a shoert help text:
+```
+Please provide an Alk file.
+Usage: alki [OPTIONS]... [file.alk]
+	--init           the initial Alk state
+	--search         enable search; works only with transition enabled
+	--stack          show stack content if any
+	--krun           path to krun executable
+	--directory      path to directory where alk-kompiled resides
+	               
+	-h --help        print usage message and exit
+  ```
+  * you should be able now to run the first alk algorithm; you find many examples in `tests` folder. Here is an example:
+  ```
+  $ alki tests/miscelanea/gcd.alk --init="u |-> 42 v |-> 56"
+State:
+
+    u |-> 42
+    v |-> 56
+```
 
