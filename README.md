@@ -4,3 +4,4 @@ This repository includes documentation about  Alk language and its associated to
 ##Contents
 
 `alk.pdf` -- Alk Primer, a quick introduction to Alk language.
+`kinterpreter.md` -- directions to install the K interpreter.
